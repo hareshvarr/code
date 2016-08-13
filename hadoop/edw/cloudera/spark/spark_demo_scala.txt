@@ -516,6 +516,10 @@ def getAll(rec: (String, Iterable[String])): Iterable[String] = {
 }
 productsGroupBy.flatMap(x => getAll(x)).collect().foreach(println)
 
+def SortList(rec :(string,Iterable[String])):Iterable[String] ={
+  return rec._2.toList.sortBy(k => k.split(",")(4).toFloat)
+  }
+
 #To get topN products by price in each category
 def getTopN(rec: (String, Iterable[String]), topN: Int): Iterable[String] = {
   val x: List[String] = rec._2.toList.sortBy(k => -k.split(",")(4).toFloat).take(topN)
