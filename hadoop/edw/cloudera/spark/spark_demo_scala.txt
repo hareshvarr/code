@@ -516,7 +516,7 @@ def getAll(rec: (String, Iterable[String])): Iterable[String] = {
 }
 productsGroupBy.flatMap(x => getAll(x)).collect().foreach(println)
 
-def SortList(rec :(string,Iterable[String])):Iterable[String] ={
+def SortList(rec :(String,Iterable[String])):Iterable[String] ={
   return rec._2.toList.sortBy(k => k.split(",")(4).toFloat)
   }
 
