@@ -494,6 +494,7 @@ val products = sc.textFile("/user/cloudera/sqoop_import/products")
 val productsMap = products.map(rec => (rec.split(",")(1), rec))
 val productsGroupBy = productsMap.groupByKey()
 productsGroupBy.collect().foreach(println)
+productsGroupBy.flatMap(rec => rec._2).take(100).foreach(println)
 
 #Get data sorted by product price per category
 #You can use map or flatMap, if you want to see one record per line you need to use flatMap
